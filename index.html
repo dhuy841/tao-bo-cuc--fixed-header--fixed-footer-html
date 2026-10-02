@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixed Menu - Header và Footer cố định</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 76px;
+        }
+
+        body {
+            margin: 0;
+            padding: 68px 0 52px;
+        }
+
+        .navbar {
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            min-height: 60px;
+            padding: 0 max(16px, calc((100% - 960px) / 2));
+            background-color: #1f2937;
+            box-shadow: 0 2px 10px rgb(15 23 42 / 18%);
+        }
+
+        .navbar .brand {
+            margin-right: auto;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .navbar nav {
+            display: flex;
+        }
+
+        .navbar nav a {
+            display: block;
+            padding: 21px 14px;
+            color: #e5e7eb;
+            font-size: 15px;
+            text-decoration: none;
+            transition: background-color 150ms ease, color 150ms ease;
+        }
+
+        .navbar nav a:hover,
+        .navbar nav a:focus-visible {
+            color: #fff;
+            background-color: #374151;
+        }
+
+        main {
+            width: min(100% - 32px, 960px);
+            margin: 0 auto;
+        }
+
+        section {
+            min-height: 440px;
+            margin: 24px 0;
+            padding: 32px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgb(15 23 42 / 6%);
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 40px);
+        }
+
+        p {
+            max-width: 68ch;
+            line-height: 1.7;
+        }
+
+        .hint {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-left: 4px solid #2563eb;
+            border-radius: 4px;
+            background: #eff6ff;
+        }
+
+        .footer {
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 15px 16px;
+            color: #e5e7eb;
+            background-color: #1f2937;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding-top: 104px;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 8px;
+            }
+
+            .navbar .brand {
+                width: 100%;
+                margin: 10px 0 0;
+                text-align: center;
+            }
+
+            .navbar nav a {
+                padding: 12px 10px;
+            }
+
+            section {
+                min-height: 420px;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="#home">Fixed Menu</a>
+        <nav aria-label="Điều hướng chính">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Fixed Top Menu</h1>
+            <h2>Cuộn trang để xem hiệu ứng</h2>
+            <p>Thanh điều hướng luôn được giữ cố định ở phía trên màn hình khi bạn cuộn trang. Hãy thử cuộn xuống hoặc chọn một mục trên menu.</p>
+            <p class="hint">Menu sử dụng <code>position: fixed</code>, <code>top: 0</code> và <code>width: 100%</code>.</p>
+        </section>
+
+        <section id="news">
+            <h2>News</h2>
+            <p>Nội dung trang được chia thành nhiều khu vực để bạn dễ dàng kiểm tra thanh menu khi cuộn. Header và footer vẫn hiển thị ở vị trí cố định.</p>
+            <p>Khoảng đệm ở đầu và cuối trang giúp nội dung không bị che khuất bởi các thanh cố định.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Menu có thể sử dụng trên màn hình lớn và tự điều chỉnh trên màn hình nhỏ. Các liên kết điều hướng đến đúng nội dung tương ứng.</p>
+            <p>Thử cuộn tiếp để xác nhận thanh điều hướng phía trên và footer phía dưới luôn ở nguyên vị trí.</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Đây là ví dụ về bố cục fixed header và fixed footer bằng HTML và CSS thuần, không cần thư viện bên ngoài.</p>
+        </section>
+    </main>
+
+    <footer class="footer">Fixed Footer · Header và footer luôn hiển thị khi cuộn trang</footer>
+</body>
+</html>
